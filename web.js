@@ -6,7 +6,7 @@ var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
   fs.readFile('index.html', function (err, data) {
     if (err) throw err;
-    response.write(200, {"Content-Type" : "text/html"});
+    response.writeHeader(200, {"Content-Type" : "text/html"});
     response.write(data);
     response.end();
   });
